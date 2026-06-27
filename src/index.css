@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #080808;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #F7B731;
+    color: #080808;
+  }
+}
+
+@layer components {
+  .label {
+    @apply block text-white/40 text-xs font-medium uppercase tracking-wider mb-1.5;
+  }
+  .input {
+    @apply w-full bg-surface border border-surface-border text-white rounded-xl px-3.5 py-2.5 text-sm placeholder-white/20 focus:outline-none focus:border-gold/40 transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #F7B731 0%, #FDD063 60%, #F7B731 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 40px rgba(247, 183, 49, 0.2);
+  }
+
+  .border-glow-gold {
+    box-shadow: inset 0 0 0 1px rgba(247, 183, 49, 0.2);
+  }
+}
